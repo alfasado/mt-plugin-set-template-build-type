@@ -1,0 +1,39 @@
+id  : SetTmplBuildType
+key : settmplbuildtype
+name: Set Template Build Type
+version: 0.1
+author_name: Alfasado Inc.
+author_link: http://alfasado.net/
+description: <__trans phrase="Plugin Action Set Template's Publishing Method.">
+l10n_class: SetTmplBuildType::L10N
+callbacks:
+    MT::App::CMS::template_output.list_template: $settmplbuildtype::SetTmplBuildType::Plugin::_list_template
+applications:
+    cms:
+        list_actions:
+            template:
+                set2static:
+                    label: Set to Statically
+                    code: $settmplbuildtype::SetTmplBuildType::Plugin::_set_buildtype
+                    permissions: can_edit_templates
+                    condition: sub { return MT->instance->blog; }
+                set2queue:
+                    label: Set to Publish Queue
+                    code: $settmplbuildtype::SetTmplBuildType::Plugin::_set_buildtype
+                    permissions: can_edit_templates
+                    condition: sub { return MT->instance->blog; }
+                set2dynamic:
+                    label: Set to Dynamically
+                    code: $settmplbuildtype::SetTmplBuildType::Plugin::_set_buildtype
+                    permissions: can_edit_templates
+                    condition: sub { return MT->instance->blog; }
+                set2manually:
+                    label: Set to Manually
+                    code: $settmplbuildtype::SetTmplBuildType::Plugin::_set_buildtype
+                    permissions: can_edit_templates
+                    condition: sub { return MT->instance->blog; }
+                set2no_publish:
+                    label: Set to Do Not Publish
+                    code: $settmplbuildtype::SetTmplBuildType::Plugin::_set_buildtype
+                    permissions: can_edit_templates
+                    condition: sub { return MT->instance->blog; }
