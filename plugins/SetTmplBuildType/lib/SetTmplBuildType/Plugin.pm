@@ -1,5 +1,6 @@
 package SetTmplBuildType::Plugin;
 use strict;
+use MT::Template;
 
 sub _set_buildtype {
     my $app = shift;
